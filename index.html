@@ -53,6 +53,8 @@
       align-items: center;
       padding: 20px 0;
       flex-wrap: wrap;
+      position: relative;
+      z-index: 10;
     }
     .logo h2 {
       font-size: 1.8rem;
@@ -97,37 +99,49 @@
       color: white;
     }
 
-    /* hero section */
+    /* hero section - IMPROVED VISIBILITY with darker overlay */
     .hero {
-      background: linear-gradient(107deg, rgba(255,243,224,0.9) 0%, rgba(255,224,178,0.7) 100%), url('https://images.pexels.com/photos/13654255/pexels-photo-13654255.jpeg?auto=compress&cs=tinysrgb&w=1600') center/cover no-repeat;
+      position: relative;
       min-height: 85vh;
       border-radius: 0 0 48px 48px;
       display: flex;
       align-items: center;
       margin-bottom: 40px;
-      background-blend-mode: overlay;
+      background: linear-gradient(135deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.55) 100%), url('https://images.pexels.com/photos/13654255/pexels-photo-13654255.jpeg?auto=compress&cs=tinysrgb&w=1600') center/cover no-repeat;
     }
     .hero-content {
-      max-width: 650px;
-      padding: 40px 0;
+      max-width: 700px;
+      padding: 60px 0;
+      position: relative;
+      z-index: 2;
     }
     .hero-content h1 {
-      font-size: 3.7rem;
+      font-size: 3.8rem;
       font-weight: 800;
       line-height: 1.2;
-      color: #2c2418;
+      color: #ffffff;
       margin-bottom: 20px;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
     }
     .hero-highlight {
-      color: #b13e3e;
+      color: #f9b84a;
       border-left: 5px solid #f4b942;
       padding-left: 18px;
       font-style: italic;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
     }
     .hero p {
-      font-size: 1.2rem;
+      font-size: 1.25rem;
       margin: 24px 0;
-      color: #3e2e21;
+      color: #ffffff;
+      font-weight: 500;
+      line-height: 1.5;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+      background: rgba(0,0,0,0.3);
+      display: inline-block;
+      padding: 8px 16px;
+      border-radius: 16px;
+      backdrop-filter: blur(2px);
     }
     .btn-primary {
       background: #e67e22;
@@ -137,7 +151,7 @@
       font-weight: 700;
       font-size: 1rem;
       color: white;
-      box-shadow: 0 8px 20px rgba(230,126,34,0.3);
+      box-shadow: 0 8px 20px rgba(230,126,34,0.4);
       cursor: pointer;
       transition: all 0.25s ease;
       display: inline-block;
@@ -146,7 +160,7 @@
     .btn-primary:hover {
       background: #b13e3e;
       transform: translateY(-3px);
-      box-shadow: 0 15px 25px rgba(177,62,62,0.3);
+      box-shadow: 0 15px 25px rgba(177,62,62,0.4);
     }
 
     /* section titles */
@@ -292,6 +306,7 @@
       font-size: 0.8rem;
       font-weight: 600;
       margin-top: 12px;
+      cursor: pointer;
     }
 
     /* video / media section */
@@ -395,17 +410,34 @@
       .hero-content h1 {
         font-size: 2.4rem;
       }
+      .hero p {
+        font-size: 1rem;
+      }
       .section-title {
         font-size: 2rem;
       }
     }
     .pill-icon {
-      background: #fdf4e0;
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(4px);
       border-radius: 60px;
-      padding: 5px 12px;
+      padding: 6px 16px;
       display: inline-block;
       font-weight: 600;
-      font-size: 0.8rem;
+      font-size: 0.85rem;
+      color: white;
+    }
+    .hero .pill-icon i {
+      color: #f4b942;
+    }
+    /* additional visibility improvement for hero text */
+    .hero-text-highlight {
+      display: inline-block;
+      background: rgba(0,0,0,0.45);
+      backdrop-filter: blur(3px);
+      padding: 12px 20px;
+      border-radius: 24px;
+      margin: 16px 0;
     }
   </style>
 </head>
@@ -426,17 +458,22 @@
     </div>
   </div>
 
-  <!-- hero -->
+  <!-- hero section with improved text visibility -->
   <div class="hero">
     <div class="container">
       <div class="hero-content">
         <h1>Immerse in the soul of <span class="hero-highlight">Ganjam, Odisha</span></h1>
-        <p>Witness ancient masked dances, celebrate Raja Parba, and join electrifying folk festivals alongside locals. Curated cultural tours for global explorers.</p>
-        <a href="#packages" class="btn-primary"><i class="fas fa-feather-alt"></i> Explore tour packages</a>
-        <div style="margin-top: 28px; display: flex; gap: 12px; flex-wrap: wrap;">
-          <span class="pill-icon"><i class="fas fa-users"></i> Small groups</span>
+        <div class="hero-text-highlight">
+          <p style="margin: 0; font-size: 1.25rem; background: transparent; padding: 0; backdrop-filter: none; text-shadow: 1px 1px 4px rgba(0,0,0,0.5);">
+            <i class="fas fa-feather-alt" style="margin-right: 8px; color: #f4b942;"></i> 
+            Witness ancient masked dances, celebrate Raja Parba, and join electrifying folk festivals alongside locals. Curated cultural tours for global explorers.
+          </p>
+        </div>
+        <a href="#packages" class="btn-primary" style="margin-top: 8px;"><i class="fas fa-compass"></i> Explore tour packages</a>
+        <div style="margin-top: 32px; display: flex; gap: 14px; flex-wrap: wrap;">
+          <span class="pill-icon"><i class="fas fa-users"></i> Small groups · Authentic</span>
           <span class="pill-icon"><i class="fas fa-calendar-alt"></i> Festival dates 2025</span>
-          <span class="pill-icon"><i class="fas fa-hands-helping"></i> Local guides</span>
+          <span class="pill-icon"><i class="fas fa-hands-helping"></i> Local cultural guides</span>
         </div>
       </div>
     </div>
@@ -540,7 +577,7 @@
       <div style="display: flex; flex-wrap: wrap; gap: 30px; align-items: center;">
         <div style="flex: 1;">
           <h2 style="font-family: 'Playfair Display'; font-size: 2rem;">Other regional celebrations</h2>
-          <p>Kandhei Jatra, Chaiti Ghoda, Karama festival – each reflecting Ganjam’s tribal & coastal fusion. Our flexible itineraries can be aligned with exact festival dates.</p>
+          <p>Kandhei Jatra, Chaiti Ghoda, Karama festival – each reflecting Ganjam’s tribal and coastal fusion. Our flexible itineraries can be aligned with exact festival dates.</p>
           <div style="margin-top: 24px;">
             <span style="background: #e67e22; color:white; padding: 8px 18px; border-radius: 50px;">📅 2025 Calendar ready</span>
           </div>
@@ -576,7 +613,7 @@
         <div class="footer-col">
           <h4>Contact</h4>
           <p><i class="fas fa-map-marker-alt"></i> Brahmapur, Ganjam, Odisha<br>
-          <i class="fas fa-phone"></i> +91 82600 234XX<br>
+          <i class="fas fa-phone"></i> +91 9348228910<br>
           <i class="fas fa-envelope"></i> hello@rangabhoomi.in</p>
           <div class="social">
             <i class="fab fa-instagram"></i>
@@ -591,7 +628,7 @@
     </div>
   </footer>
 
-  <!-- small interactive tooltip / smooth behaviour -->
+  <!-- smooth scroll & interactive alerts -->
   <script>
     // smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -621,6 +658,14 @@
         alert("🎭 Join this festival live with our guided tour packages! Contact us for exact dates and curated experiences.");
       });
     });
+    // handle book now button in navbar
+    const bookNowNav = document.querySelector('.btn-outline');
+    if(bookNowNav) {
+      bookNowNav.addEventListener('click', (e) => {
+        e.preventDefault();
+        alert("✨ Welcome to Rangabhoomi! Our team will share the detailed itinerary and festival joining options for Ganjam.");
+      });
+    }
   </script>
 </body>
 </html>
